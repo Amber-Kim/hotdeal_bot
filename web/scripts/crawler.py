@@ -1,8 +1,8 @@
-from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
 import requests
 import telegram
 from hotdeal.models import Deal
+from datetime import datetime, timedelta
 
 response = requests.get("https://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu")
 

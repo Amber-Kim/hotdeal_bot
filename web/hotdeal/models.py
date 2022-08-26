@@ -9,4 +9,4 @@ class Deal(models.Model):
     link = models.CharField(max_length=200, primary_key=True)
     reply_count = models.IntegerField()
     up_count = models.IntegerField()
-    created_at = models.DateTimeField(default=now())
+    created_at = models.DateTimeField(default=now)

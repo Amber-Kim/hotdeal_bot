@@ -4,18 +4,19 @@ import telegram
 from hotdeal.models import Deal
 from datetime import datetime, timedelta
 
-response = requests.get("https://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu")
+response = requests.get(
+    "http://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu")
 
 soup = BeautifulSoup(response.text, "html.parser")
 BOT_TOKEN = "5702072818:AAHkCJb4ptAVY_YxQDP_-NDiJ3GbgBG6MCQ"
 
-bot = telegram.Bot(token = BOT_TOKEN)
+bot = telegram.Bot(token=BOT_TOKEN)
 
 
 def run():
     # delete deals older than 3days
     row, _ = Deal.objects.filter(created_at__lte=datetime.now() -
-                                timedelta(days=3)).delete()
+                                 timedelta(days=3)).delete()
     print(row, "deals deleted")
 
     for item in soup.find_all("tr", {'class': ["list1", "list0"]}):

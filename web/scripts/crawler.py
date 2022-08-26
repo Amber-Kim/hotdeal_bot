@@ -34,7 +34,7 @@ def run():
             if up_count >= 5:
                 if (Deal.objects.filter(link__iexact=link).count() == 0):
                     Deal(image_url=image, title=title, link=link,
-                        reply_count=reply_count, up_count=up_count).save()
+                         reply_count=reply_count, up_count=up_count).save()
                     bot.sendMessage(-1001382429659,
                                     '{} {}'.format(title, link))
 
